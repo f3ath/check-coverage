@@ -32,7 +32,7 @@ Future<void> main() async {
             .transform(const LineSplitter())
             .take(1)
             .join(),
-        'Total coverage of 92% is below expected 100%.');
+        'Total coverage of 91% is below expected 100%.');
   });
 
   test('Coverage not found', () async {
