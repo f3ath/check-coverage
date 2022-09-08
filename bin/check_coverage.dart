@@ -16,7 +16,7 @@ Future<void> main(List<String> args) async {
       traceFile.uncovered.take(3).forEach((file) {
         stderr.writeln(file.name);
         stderr.writeln(
-            'Lines (${file.uncovered.length}): ${file.uncovered.join(', ')}');
+            'Lines (${file.uncovered.length}): ${file.uncoveredRanges.join(', ')}');
       });
 
       exit(1);

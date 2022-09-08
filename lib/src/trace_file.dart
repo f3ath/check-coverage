@@ -1,23 +1,15 @@
+import 'package:lcov_tracefile/lcov_tracefile.dart';
+
 class TraceFile {
   static Future<TraceFile> readLines(Stream<String> lines) async {
-    var name = '';
-    final hits = <int, int>{};
-    final files = <FileCoverage>[];
+    final tracefile = readTracefile(await lines.toList());
+    final files = tracefile.sources
+        .map((source) => FileCoverage(
+            source.name,
+            Map.fromEntries(source.lines.coverage
+                .map((coverage) => MapEntry(coverage.line, coverage.count)))))
+        .toList();
 
-    await lines.forEach((line) {
-      if (line.startsWith('SF:')) {
-        name = line.substring(3);
-      } else if (line.startsWith('DA:')) {
-        final values = line.substring(3).split(',').map(int.parse).toList();
-        hits[values.first] = values.last;
-      } else if (line == 'end_of_record') {
-        if (name.isEmpty) throw StateError('Unknown file name');
-        if (hits.isEmpty) throw StateError('No coverage found for file $name');
-        files.add(FileCoverage(name, hits));
-        name = '';
-        hits.clear();
-      }
-    });
     if (files.isEmpty) throw StateError('No coverage found');
     return TraceFile._(files);
   }
@@ -62,4 +54,28 @@ class FileCoverage {
   int get linesTotal => linesCovered + linesUncovered;
 
   Iterable<int> get uncovered => _uncovered;
+
+  Iterable<Range> get uncoveredRanges =>
+      _uncovered.map(Range.single).fold<List<Range>>(
+          [],
+          (list, range) => list.isNotEmpty && range.follows(list.last)
+              ? [
+                  ...list.sublist(0, list.length - 1),
+                  Range(list.last.first, range.last)
+                ]
+              : [...list, range]);
+}
+
+class Range {
+  final int first;
+  final int last;
+
+  Range(this.first, this.last);
+
+  Range.single(int val) : this(val, val);
+
+  bool follows(Range other) => first - 1 == other.last;
+
+  @override
+  String toString() => first == last ? '$first' : '$first-$last';
 }

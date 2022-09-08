@@ -1,11 +1,3 @@
-Environment:
-  # files: 1
-  # workers: 1
-  sdk-root: null
-  package-spec: .packages
-  report-on: [lib]
-  check-ignore: true
-Done creating global hitmap. Took 46 ms.
 SF:/home/f3ath/project/marker/lib/flavors.dart
 DA:7,3
 DA:8,2
@@ -192,6 +184,3 @@ DA:154,1
 LF:67
 LH:67
 end_of_record
-Done flushing output. Took 82 ms.
-Failed to resolve:
-  data:application/dart;charset=utf-8,%20%20%20%20//%20@dart=2.12%0A%20%20%20%20import%20%22dart:isolate%22;%0A%0A%20%20%20%20import%20%22package:test_core/src/bootstrap/vm.dart%22;%0A%0A%20%20%20%20import%20%22file:///home/f3ath/project/marker/test/rendering_test.dart%22%20as%20test;%0A%0A%20%20%20%20void%20main(_,%20SendPort%20sendPort)%20%7B%0A%20%20%20%20%20%20internalBootstrapVmTest(()%20=%3E%20test.main,%20sendPort);%0A%20%20%20%20%7D%0A%20%20
