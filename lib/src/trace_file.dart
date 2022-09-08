@@ -1,3 +1,4 @@
+import 'package:check_coverage/src/file_coverage.dart';
 import 'package:lcov_tracefile/lcov_tracefile.dart';
 
 class TraceFile {
@@ -33,49 +34,4 @@ class TraceFile {
 
   Iterable<FileCoverage> get uncovered =>
       _files.where((e) => e.linesUncovered > 0);
-}
-
-class FileCoverage {
-  FileCoverage(this.name, Map<int, int> hits) {
-    hits.entries.forEach((e) {
-      (e.value > 0 ? _covered : _uncovered).add(e.key);
-    });
-  }
-
-  final _covered = <int>{};
-  final _uncovered = <int>{};
-
-  final String name;
-
-  int get linesCovered => _covered.length;
-
-  int get linesUncovered => _uncovered.length;
-
-  int get linesTotal => linesCovered + linesUncovered;
-
-  Iterable<int> get uncovered => _uncovered;
-
-  Iterable<Range> get uncoveredRanges =>
-      _uncovered.map(Range.single).fold<List<Range>>(
-          [],
-          (list, range) => list.isNotEmpty && range.follows(list.last)
-              ? [
-                  ...list.sublist(0, list.length - 1),
-                  Range(list.last.first, range.last)
-                ]
-              : [...list, range]);
-}
-
-class Range {
-  final int first;
-  final int last;
-
-  Range(this.first, this.last);
-
-  Range.single(int val) : this(val, val);
-
-  bool follows(Range other) => first - 1 == other.last;
-
-  @override
-  String toString() => first == last ? '$first' : '$first-$last';
 }

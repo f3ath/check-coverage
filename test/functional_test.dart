@@ -30,7 +30,6 @@ Future<void> main() async {
         await proc.stderr
             .transform(utf8.decoder)
             .transform(const LineSplitter())
-            // .take(1)
             .join('\n'),
         equals([
           'Total coverage of 91% is below expected 100%.',
