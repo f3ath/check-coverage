@@ -1,13 +1,13 @@
 name: check_coverage
 description: A tiny Dart CLI tool to check if code coverage is below the threshold. Analyzes the tracefile used by lcov.
 repository: https://github.com/f3ath/check-coverage
-version: 0.0.5
+version: 0.0.6
 
 executables:
   check_coverage: check_coverage
 
 environment:
-  sdk: ">=2.18.0 <3.0.0"
+  sdk: ">=3.2.0 <4.0.0"
 
 dependencies:
   lcov_tracefile: ^0.0.1
