@@ -1,3 +1,7 @@
+## [0.0.6] - 2024-02-20
+### Changed
+- Bumped dependencies
+
 ## [0.0.5] - 2022-09-08
 ### Changed
 - Rely on lcov\_tracefile for parsing
@@ -20,6 +24,7 @@
 ### Added
 - Initial version
 
+[0.0.6]: https://github.com/f3ath/check-coverage/compare/0.0.5...0.0.6
 [0.0.5]: https://github.com/f3ath/check-coverage/compare/0.0.4...0.0.5
 [0.0.4]: https://github.com/f3ath/check-coverage/compare/0.0.3...0.0.4
 [0.0.3]: https://github.com/f3ath/check-coverage/compare/0.0.2...0.0.3
