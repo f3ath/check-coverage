@@ -1,3 +1,7 @@
+## [0.0.7] - 2024-08-09
+### Changed
+- Updated docs and test scripts
+
 ## [0.0.6] - 2024-02-20
 ### Changed
 - Bumped dependencies
@@ -24,6 +28,7 @@
 ### Added
 - Initial version
 
+[0.0.7]: https://github.com/f3ath/check-coverage/compare/0.0.6...0.0.7
 [0.0.6]: https://github.com/f3ath/check-coverage/compare/0.0.5...0.0.6
 [0.0.5]: https://github.com/f3ath/check-coverage/compare/0.0.4...0.0.5
 [0.0.4]: https://github.com/f3ath/check-coverage/compare/0.0.3...0.0.4
