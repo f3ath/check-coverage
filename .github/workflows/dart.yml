@@ -22,5 +22,7 @@ jobs:
         run: dart test --coverage=.coverage
       - name: Install coverage
         run: dart pub global activate --source path .
+      - name: export PATH
+        run: export PATH="$PATH":"$HOME/.pub-cache/bin"
       - name: Coverage
         run: dart run coverage:format_coverage -l -c -i .coverage --report-on=lib | dart run check_coverage:check_coverage
