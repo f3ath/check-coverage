@@ -1,3 +1,7 @@
+## [0.0.8] - 2024-12-24
+### Added
+- Usage example
+
 ## [0.0.7] - 2024-08-09
 ### Changed
 - Updated docs and test scripts
@@ -28,6 +32,7 @@
 ### Added
 - Initial version
 
+[0.0.8]: https://github.com/f3ath/check-coverage/compare/0.0.7...0.0.8
 [0.0.7]: https://github.com/f3ath/check-coverage/compare/0.0.6...0.0.7
 [0.0.6]: https://github.com/f3ath/check-coverage/compare/0.0.5...0.0.6
 [0.0.5]: https://github.com/f3ath/check-coverage/compare/0.0.4...0.0.5
