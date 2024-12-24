@@ -12,4 +12,4 @@ The first line runs the tests placing the coverage report in the `.coverage` fol
 The second line produces a combined lcov coverage and passes it to the tool requiring at least 98% coverage.
 
 The tool will exit normally if the coverage is at or above the threshold. 
-Otherwise, it will set the exit status to 1 and print the top 3 uncovered files.
+Otherwise, it will set the exit status to 1 and list the least covered files.
